@@ -1,6 +1,6 @@
 public class JogadorVirtual {
 
-    public JogadorVirtual(){
+    public JogadorVirtual(char id){
 
     };
 

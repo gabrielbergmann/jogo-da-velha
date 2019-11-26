@@ -1,7 +1,11 @@
-public class JogoDaVelha {
+public class JogoDaVelha extends JogoDeTabuleiro {
+    JogadorHumano jogadorHumano;
+    JogadorVirtual jogadorVirtual;
 
     public JogoDaVelha(){
-
+        super('3', '#');
+        jogadorHumano = new JogadorHumano('X');
+        jogadorVirtual = new JogadorVirtual('O');
     };
 
     public boolean venceu(char idJogador) {
@@ -12,7 +16,7 @@ public class JogoDaVelha {
 
     };
 
-    void jogar(){
+    public void jogar(){
 
     };
 }
