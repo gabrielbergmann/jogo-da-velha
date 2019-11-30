@@ -1,6 +1,6 @@
 public class JogoDaVelha extends JogoDeTabuleiro {
-    JogadorHumano jogadorHumano;
-    JogadorVirtual jogadorVirtual;
+    protected JogadorHumano jogadorHumano;
+    protected JogadorVirtual jogadorVirtual;
 
     public JogoDaVelha(){
         super('3', '#');
@@ -17,6 +17,6 @@ public class JogoDaVelha extends JogoDeTabuleiro {
     };
 
     public void jogar(){
-
+        jogar(jogadorHumano);
     };
 }

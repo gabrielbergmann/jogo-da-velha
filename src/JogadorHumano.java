@@ -1,10 +1,10 @@
-public class JogadorHumano {
+public class JogadorHumano extends Jogador{
 
     JogadorHumano(char id) {
-
+        super(id);
     };
 
-    int[] jogar(){
+    public int[] jogar(){
         return null;
     }
 }
