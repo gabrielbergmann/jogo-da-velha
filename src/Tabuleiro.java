@@ -6,8 +6,8 @@ public class Tabuleiro {
     public Tabuleiro(int dimensaoDoTabuleiro, char pecaDefault) {
         this.pecaDefault = pecaDefault;
         tabuleiro = new char[dimensaoDoTabuleiro][dimensaoDoTabuleiro];
-        for (int i = 0; i < dimensaoDoTabuleiro; i++) {
-            for (int j = 0; j < dimensaoDoTabuleiro; j++) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
                 tabuleiro[i][j] = pecaDefault;
             }
         }
@@ -27,7 +27,7 @@ public class Tabuleiro {
     }
 
     public String toString() {
-        String tabuleiroConvertido = "";
+        String tabuleiroConvertido = "Tabuleiro:";
         for (int i = 0; i < tabuleiro.length; i++) {
             for (int j = 0; j < tabuleiro.length; j++) {
                 tabuleiroConvertido += tabuleiro[i][j];
@@ -44,4 +44,6 @@ public class Tabuleiro {
     int getQtPecas() {
         return 0;
     }
+
+
 }
