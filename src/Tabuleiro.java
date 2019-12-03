@@ -1,41 +1,47 @@
 public class Tabuleiro {
     char pecaDefault;
     char[][] tabuleiro;
-    int qPecas;
+    int qtPecas;
 
-    public Tabuleiro(int dimensaoDoTabuleiro, char qPecas){
-        this.qPecas = dimensaoDoTabuleiro;
-        pecaDefault = qPecas;
+    public Tabuleiro(int dimensaoDoTabuleiro, char pecaDefault) {
+        this.pecaDefault = pecaDefault;
+        tabuleiro = new char[dimensaoDoTabuleiro][dimensaoDoTabuleiro];
         for (int i = 0; i < dimensaoDoTabuleiro; i++) {
             for (int j = 0; j < dimensaoDoTabuleiro; j++) {
-                tabuleiro[i][j] = qPecas;
-                System.out.println(tabuleiro[i][j]);
+                tabuleiro[i][j] = pecaDefault;
             }
         }
-    };
+    }
 
-    public boolean adicionarPeca(char peca, int i, int j){
+    public boolean adicionarPeca(char peca, int i, int j) {
 
         return true;
-    };
+    }
 
     void removerPeca(int i, int j) {
-        
-    };
 
-    void inicializarTabuleiro(){
-    };
+    }
+
+    void inicializarTabuleiro() {
+        System.out.println(toString());
+    }
 
     public String toString() {
+        String tabuleiroConvertido = "";
+        for (int i = 0; i < tabuleiro.length; i++) {
+            for (int j = 0; j < tabuleiro.length; j++) {
+                tabuleiroConvertido += tabuleiro[i][j];
+            }
+            tabuleiroConvertido += "\n";
+        }
+        return tabuleiroConvertido;
+    }
 
-        return "";
-    };
-
-    char getPeca(int i, int j){
+    char getPeca(int i, int j) {
         return 0;
-    };
+    }
 
-    int getQtPecas(){
+    int getQtPecas() {
         return 0;
     }
 }

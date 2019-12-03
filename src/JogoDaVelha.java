@@ -13,7 +13,7 @@ public class JogoDaVelha extends JogoDeTabuleiro {
     };
 
     void jogar(Jogador jogador) {
-
+        tabuleiro.inicializarTabuleiro();
     };
 
     public void jogar(){
