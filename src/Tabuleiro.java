@@ -14,8 +14,11 @@ public class Tabuleiro {
     }
 
     public boolean adicionarPeca(char peca, int i, int j) {
-
-        return true;
+        if (i >= 3 || j >= 3) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     void removerPeca(int i, int j) {
@@ -27,7 +30,7 @@ public class Tabuleiro {
     }
 
     public String toString() {
-        String tabuleiroConvertido = "Tabuleiro:";
+        String tabuleiroConvertido = "Tabuleiro:\n";
         for (int i = 0; i < tabuleiro.length; i++) {
             for (int j = 0; j < tabuleiro.length; j++) {
                 tabuleiroConvertido += tabuleiro[i][j];

@@ -9,7 +9,9 @@ public class JogoDaVelha extends JogoDeTabuleiro {
     }
 
     public boolean venceu(char idJogador) {
+
         return true;
+
     }
 
     void jogar(Jogador jogador) {

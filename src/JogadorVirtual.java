@@ -1,14 +1,21 @@
-public class JogadorVirtual {
+public class JogadorVirtual extends Jogador {
 
-    public JogadorVirtual(char id){
-
-    };
-
-    int inteligencia(){
-        return 0;
+    public JogadorVirtual(char id) {
+        super(id);
     }
 
-    int[] jogar(){
-        return null;
+    int inteligencia() {
+        return Utils.sortear(0, 2);
+    }
+
+    public int[] jogar() {
+        int[] jogadaVirtual = new int[1];
+
+        for (int i = 0; i < 2; i++) {
+
+            jogadaVirtual[i] = inteligencia();
+        }
+
+        return jogadaVirtual;
     }
 }
