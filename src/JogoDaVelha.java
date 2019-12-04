@@ -10,7 +10,7 @@ public class JogoDaVelha extends JogoDeTabuleiro {
 
     public boolean venceu(char idJogador) {
 
-        return true;
+        return false;
 
     }
 
@@ -20,6 +20,7 @@ public class JogoDaVelha extends JogoDeTabuleiro {
             int[] posicoes = jogador.jogar();
              jogada = tabuleiro.adicionarPeca(jogador.getId(), posicoes[0], posicoes[1]);
         } while (!jogada);
+        System.out.println(tabuleiro.toString());
     }
 
     public void jogar() {
@@ -28,6 +29,10 @@ public class JogoDaVelha extends JogoDeTabuleiro {
         do {
             jogar(jogadorHumano);
             venceu = venceu(jogadorHumano.getId());
+            if (!venceu){
+                jogar(jogadorVirtual);
+                venceu = venceu(jogadorHumano.getId());
+            }
 
         } while (venceu != true);
     }

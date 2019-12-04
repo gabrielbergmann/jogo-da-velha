@@ -9,13 +9,10 @@ public class JogadorVirtual extends Jogador {
     }
 
     public int[] jogar() {
-        int[] jogadaVirtual = new int[1];
-
+        int[] jogadaVirtual = new int[2];
         for (int i = 0; i < 2; i++) {
-
             jogadaVirtual[i] = inteligencia();
         }
-
         return jogadaVirtual;
     }
 }
