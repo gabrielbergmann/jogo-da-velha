@@ -71,7 +71,7 @@ public class JogoDaVelha extends JogoDeTabuleiro {
                     venceu = true;
                     System.out.println("VOCÊ SAIU!");
                     tabuleiro.removerPeca(0, 0);
-                    System.out.println("Foram jogadas " + tabuleiro.getQtPecas() + " peças no tabuleiro.");
+                    System.out.println("FORAM JOGADAS " + tabuleiro.getQtPecas() + " PEÇAS NO TABULEIRO.");
             }
         } while (venceu != true);
         if (venceu) {
