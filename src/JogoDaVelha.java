@@ -13,26 +13,26 @@ public class JogoDaVelha extends JogoDeTabuleiro {
     public boolean venceu(char idJogador) {
         boolean venceu = false;
         for (int i = 0; i < 3; i++) {
-            if ((tabuleiro.getPeca(0,i) == tabuleiro.getPeca(1, i)) && (tabuleiro.getPeca(0,i) == tabuleiro.getPeca(2,i) && (tabuleiro.getPeca(0,i) != '#'))) {
+            if ((tabuleiro.getPeca(0, i) == tabuleiro.getPeca(1, i)) && (tabuleiro.getPeca(0, i) == tabuleiro.getPeca(2, i) && (tabuleiro.getPeca(0, i) != '#'))) {
                 System.out.println("VENCEU PELA VERTICAL!");
                 venceu = true;
-            } else if ((tabuleiro.getPeca(i,0) == tabuleiro.getPeca(i,1) && (tabuleiro.getPeca(i,0) == tabuleiro.getPeca(i,2)) && (tabuleiro.getPeca(i,0) != '#'))) {
+            } else if ((tabuleiro.getPeca(i, 0) == tabuleiro.getPeca(i, 1) && (tabuleiro.getPeca(i, 0) == tabuleiro.getPeca(i, 2)) && (tabuleiro.getPeca(i, 0) != '#'))) {
                 System.out.println("VENCEU PELA HORIZONTAL!");
                 venceu = true;
             }
         }
 
-        if ((tabuleiro.getPeca(0,0) == tabuleiro.getPeca(1,1)) && (tabuleiro.getPeca(0,0) == tabuleiro.getPeca(2,2)) && (tabuleiro.getPeca(0,0) != '#')) {
+        if ((tabuleiro.getPeca(0, 0) == tabuleiro.getPeca(1, 1)) && (tabuleiro.getPeca(0, 0) == tabuleiro.getPeca(2, 2)) && (tabuleiro.getPeca(0, 0) != '#')) {
             System.out.println("VENCEU PELA DIAGONAL!");
             venceu = true;
-        } else if ((tabuleiro.getPeca(2,0) == tabuleiro.getPeca(1,1)) && (tabuleiro.getPeca(2,0) == tabuleiro.getPeca(0,2)) && (tabuleiro.getPeca(2,0) != '#')) {
+        } else if ((tabuleiro.getPeca(2, 0) == tabuleiro.getPeca(1, 1)) && (tabuleiro.getPeca(2, 0) == tabuleiro.getPeca(0, 2)) && (tabuleiro.getPeca(2, 0) != '#')) {
             System.out.println("VENCEU PELA DIAGONAL!");
             venceu = true;
-        } else if (tabuleiro.getQtPecas() > 9){
-            tabuleiro.removerPeca(0,0);
+        } else if (tabuleiro.getQtPecas() > 9) {
+            tabuleiro.removerPeca(0, 0);
             System.out.println("DEU VELHA!");
         }
-       return venceu;
+        return venceu;
     }
 
     void jogar(Jogador jogador) {
@@ -47,13 +47,13 @@ public class JogoDaVelha extends JogoDeTabuleiro {
     public void jogar() {
         tabuleiro.inicializarTabuleiro();
         boolean venceu = false;
-            int opcao;
-            Scanner s = new Scanner(System.in);
-            System.out.println("JOGO DA VELHA");
-            System.out.println("ESCOLHA UMA OPÇÃO:");
-            System.out.println("1 - JOGAR");
-            System.out.println("0 - SAIR");
-            opcao = s.nextInt();
+        int opcao;
+        Scanner s = new Scanner(System.in);
+        System.out.println("JOGO DA VELHA");
+        System.out.println("ESCOLHA UMA OPÇÃO:");
+        System.out.println("1 - JOGAR");
+        System.out.println("0 - SAIR");
+        opcao = s.nextInt();
         do {
             switch (opcao) {
                 case 1:
@@ -64,16 +64,20 @@ public class JogoDaVelha extends JogoDeTabuleiro {
                         jogar(jogadorVirtual);
                         venceu = venceu(jogadorHumano.getId());
                     } else {
-                        venceu = false;
+                        venceu = true;
                     }
                     break;
                 case 0:
                     venceu = true;
                     System.out.println("VOCÊ SAIU!");
-                    tabuleiro.removerPeca(0,0);
-                    System.out.println("Você jogou "+tabuleiro.getQtPecas()+" peças no tabuleiro.");
+                    tabuleiro.removerPeca(0, 0);
+                    System.out.println("Foram jogadas " + tabuleiro.getQtPecas() + " peças no tabuleiro.");
             }
         } while (venceu != true);
+        if (venceu) {
+            tabuleiro.removerPeca(0, 0);
+            System.out.println("Foram jogadas  " + tabuleiro.getQtPecas() + " peças no tabuleiro.");
+        }
     }
 
 }
