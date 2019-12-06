@@ -15,11 +15,12 @@ public class Tabuleiro {
 
     public boolean adicionarPeca(char peca, int i, int j) {
         boolean adiciona = false;
-        if ((getPeca(i, j) == 'O' || getPeca(i, j) == 'X') && getPeca(i, j) != '#') {
-            System.out.println("JOGADA EM CIMA DE OUTRA PEÇA!");
-            adiciona = false;
-        } else if (i >= 3 || j >= 3) {
+
+        if (i >= 3 || j >= 3 && i < 0 || j < 0) {
             System.out.println("JOGADA FORA DO TABULEIRO!");
+            adiciona = false;
+        } else if ((getPeca(i, j) == 'O' || getPeca(i, j) == 'X') && getPeca(i, j) != '#') {
+            System.out.println("JOGADA EM CIMA DE OUTRA PEÇA!");
             adiciona = false;
         } else if (getPeca(i, j) == '#') {
             tabuleiro[i][j] = peca;
