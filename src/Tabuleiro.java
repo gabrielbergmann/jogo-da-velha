@@ -14,11 +14,11 @@ public class Tabuleiro {
     }
 
     public boolean adicionarPeca(char peca, int i, int j) {
-        if (i >= 3 || j >= 3) {
-            System.out.println("Jogada fora do tabuleiro!");
-            return false;
-        } else if (tabuleiro[i][j] == peca) {
+        if (getPeca(i,j) == peca) {
             System.out.println("Jogada em cima de outra peça!");
+            return false;
+        } else if (i >= 3 || j >= 3) {
+            System.out.println("Jogada fora do tabuleiro!");
             return false;
         } else {
             tabuleiro[i][j] = peca;
@@ -28,6 +28,11 @@ public class Tabuleiro {
     }
 
     void removerPeca(int i, int j) {
+        for (int k = 0; k < i; k++) {
+            for (int l = 0; l < j; l++) {
+                tabuleiro[k][l] = pecaDefault;
+            }
+        }
         System.out.println(toString());
     }
 
@@ -37,8 +42,8 @@ public class Tabuleiro {
 
     public String toString() {
         String tabuleiroConvertido = "Tabuleiro:\n";
-        for (int i = 0; i < tabuleiro.length; i++) {
-            for (int j = 0; j < tabuleiro.length; j++) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
                 tabuleiroConvertido += tabuleiro[i][j];
             }
             tabuleiroConvertido += "\n";
@@ -47,7 +52,7 @@ public class Tabuleiro {
     }
 
     char getPeca(int i, int j) {
-        return 0;
+        return tabuleiro[i][j];
     }
 
     int getQtPecas() {
