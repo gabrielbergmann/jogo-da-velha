@@ -5,7 +5,7 @@ public class JogadorVirtual extends Jogador {
     }
 
     int inteligencia() {
-        return Utils.sortear(0, 2);
+        return Utils.sortear(0, 3);
     }
 
     public int[] jogar() {
