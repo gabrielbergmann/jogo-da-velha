@@ -14,17 +14,19 @@ public class Tabuleiro {
     }
 
     public boolean adicionarPeca(char peca, int i, int j) {
-        if (getPeca(i,j) == peca) {
+        boolean adiciona = false;
+        if (getPeca(i,j) == peca && getPeca(i,j) != '#') {
             System.out.println("Jogada em cima de outra peça!");
-            return false;
+            adiciona = false;
         } else if (i >= 3 || j >= 3) {
             System.out.println("Jogada fora do tabuleiro!");
-            return false;
-        } else {
+            adiciona = false;
+        } else  if (getPeca(i,j) == '#') {
             tabuleiro[i][j] = peca;
             qtPecas++;
-            return true;
+            adiciona = true;
         }
+        return adiciona;
     }
 
     void removerPeca(int i, int j) {

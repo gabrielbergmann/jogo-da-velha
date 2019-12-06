@@ -27,6 +27,9 @@ public class JogoDaVelha extends JogoDeTabuleiro {
         } else if ((tabuleiro.getPeca(2,0) == tabuleiro.getPeca(1,1)) && (tabuleiro.getPeca(2,0) == tabuleiro.getPeca(0,2)) && (tabuleiro.getPeca(2,0) != '#')) {
             System.out.println("VENCEU PELA DIAGONAL!");
             venceu = true;
+        } else if (tabuleiro.getQtPecas() > 9){
+            tabuleiro.removerPeca(0,0);
+            System.out.println("DEU VELHA!");
         }
        return venceu;
     }
@@ -44,11 +47,11 @@ public class JogoDaVelha extends JogoDeTabuleiro {
         tabuleiro.inicializarTabuleiro();
         boolean venceu = false;
         do {
-            System.out.println("Jogador Humano");
+            System.out.println("JOGADOR HUMANO!");
             jogar(jogadorHumano);
             venceu = venceu(jogadorHumano.getId());
             if (!venceu) {
-                System.out.println("Jogador Virtual");
+                System.out.println("JOGADOR VIRTUAL");
                 jogar(jogadorVirtual);
                 venceu = venceu(jogadorHumano.getId());
             }
