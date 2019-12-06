@@ -15,13 +15,13 @@ public class Tabuleiro {
 
     public boolean adicionarPeca(char peca, int i, int j) {
         boolean adiciona = false;
-        if (getPeca(i,j) == peca && getPeca(i,j) != '#') {
-            System.out.println("Jogada em cima de outra peça!");
+        if ((getPeca(i, j) == 'O' || getPeca(i, j) == 'X') && getPeca(i, j) != '#') {
+            System.out.println("JOGADA EM CIMA DE OUTRA PEÇA!");
             adiciona = false;
         } else if (i >= 3 || j >= 3) {
-            System.out.println("Jogada fora do tabuleiro!");
+            System.out.println("JOGADA FORA DO TABULEIRO!");
             adiciona = false;
-        } else if (getPeca(i,j) == '#') {
+        } else if (getPeca(i, j) == '#') {
             tabuleiro[i][j] = peca;
             qtPecas++;
             adiciona = true;
@@ -46,7 +46,7 @@ public class Tabuleiro {
         String tabuleiroConvertido = "Tabuleiro:\n";
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                tabuleiroConvertido += tabuleiro[i][j];
+                tabuleiroConvertido += "|" + tabuleiro[i][j] + "|";
             }
             tabuleiroConvertido += "\n";
         }

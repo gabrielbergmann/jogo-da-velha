@@ -13,7 +13,6 @@ public class JogoDaVelha extends JogoDeTabuleiro {
     public boolean venceu(char idJogador) {
         boolean venceu = false;
         for (int i = 0; i < 3; i++) {
-
             if ((tabuleiro.getPeca(0,i) == tabuleiro.getPeca(1, i)) && (tabuleiro.getPeca(0,i) == tabuleiro.getPeca(2,i) && (tabuleiro.getPeca(0,i) != '#'))) {
                 System.out.println("VENCEU PELA VERTICAL!");
                 venceu = true;
@@ -50,7 +49,7 @@ public class JogoDaVelha extends JogoDeTabuleiro {
         boolean venceu = false;
             int opcao;
             Scanner s = new Scanner(System.in);
-            System.out.println("JOGO DA VAELHA");
+            System.out.println("JOGO DA VELHA");
             System.out.println("ESCOLHA UMA OPÇÃO:");
             System.out.println("1 - JOGAR");
             System.out.println("0 - SAIR");
@@ -64,15 +63,16 @@ public class JogoDaVelha extends JogoDeTabuleiro {
                         System.out.println("JOGADOR VIRTUAL");
                         jogar(jogadorVirtual);
                         venceu = venceu(jogadorHumano.getId());
+                    } else {
+                        venceu = false;
                     }
                     break;
-                case 2:
+                case 0:
                     venceu = true;
                     System.out.println("VOCÊ SAIU!");
+                    tabuleiro.removerPeca(0,0);
+                    System.out.println("Você jogou "+tabuleiro.getQtPecas()+" peças no tabuleiro.");
             }
-
-
-
         } while (venceu != true);
     }
 
