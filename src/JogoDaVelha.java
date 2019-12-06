@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class JogoDaVelha extends JogoDeTabuleiro {
     protected JogadorHumano jogadorHumano;
     protected JogadorVirtual jogadorVirtual;
@@ -46,15 +48,30 @@ public class JogoDaVelha extends JogoDeTabuleiro {
     public void jogar() {
         tabuleiro.inicializarTabuleiro();
         boolean venceu = false;
+            int opcao;
+            Scanner s = new Scanner(System.in);
+            System.out.println("JOGO DA VAELHA");
+            System.out.println("ESCOLHA UMA OPÇÃO:");
+            System.out.println("1 - JOGAR");
+            System.out.println("0 - SAIR");
+            opcao = s.nextInt();
         do {
-            System.out.println("JOGADOR HUMANO!");
-            jogar(jogadorHumano);
-            venceu = venceu(jogadorHumano.getId());
-            if (!venceu) {
-                System.out.println("JOGADOR VIRTUAL");
-                jogar(jogadorVirtual);
-                venceu = venceu(jogadorHumano.getId());
+            switch (opcao) {
+                case 1:
+                    jogar(jogadorHumano);
+                    venceu = venceu(jogadorHumano.getId());
+                    if (!venceu) {
+                        System.out.println("JOGADOR VIRTUAL");
+                        jogar(jogadorVirtual);
+                        venceu = venceu(jogadorHumano.getId());
+                    }
+                    break;
+                case 2:
+                    venceu = true;
+                    System.out.println("VOCÊ SAIU!");
             }
+
+
 
         } while (venceu != true);
     }

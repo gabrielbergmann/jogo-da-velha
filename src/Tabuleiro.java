@@ -21,7 +21,7 @@ public class Tabuleiro {
         } else if (i >= 3 || j >= 3) {
             System.out.println("Jogada fora do tabuleiro!");
             adiciona = false;
-        } else  if (getPeca(i,j) == '#') {
+        } else if (getPeca(i,j) == '#') {
             tabuleiro[i][j] = peca;
             qtPecas++;
             adiciona = true;
