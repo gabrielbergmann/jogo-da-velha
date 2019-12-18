@@ -1,5 +1,3 @@
-public class Jogo {
-    void Jogar() {
-
-    }
+public interface Jogo {
+   public void jogar();
 }
